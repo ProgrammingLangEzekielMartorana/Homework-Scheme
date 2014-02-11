@@ -19,12 +19,12 @@
 (define (satisfactory_meal? Meal)
 ; return true if everyone can eat at least three dishes
 ; return false if otherwise
-  (cond (and (satisfy? (satisfy_Alice Meal))
-	(and (satisfy?(satisfy_Bob Meal))
-	(and (satisfy_two?(satisfy_Cheryl Meal))
-	(and (satisfy?(satisfy_Diane Meal))
-	(and (satisfy?(satisfy_Edgar Meal)))))) #T)
-  (else #F)))
+  (cond ((and (satisfy? (satisfy_Alice Meal))
+		(and (satisfy?(satisfy_Bob Meal))
+		(and (satisfy_two?(satisfy_Cheryl Meal))
+		(and (satisfy?(satisfy_Diane Meal) (satisfy?(satisfy_Edgar Meal)))))) #T)
+		(else #F))))
+	
 
 
 (define (satisfy? x )
