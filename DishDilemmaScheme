@@ -28,4 +28,4 @@
 (cond ((>= x 3) #T)
 (else #F)))
 
-(define (satisfy_Alice Meal
+(define (satisfy_Alice Meal fjdsfjdsflsjdklfjdslfkdj
