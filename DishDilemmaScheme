@@ -49,9 +49,9 @@
 ; return true if everyone can eat at least three dishes
 ; return false if otherwise
   (cond ((and (satisfy? (satisfy_Alice Meal))
-		(and (satisfy?(satisfy_Bob Meal))
-		(and (satisfy_two?(satisfy_Cheryl Meal))
-		(and (satisfy?(satisfy_Diane Meal) (satisfy?(satisfy_Edgar Meal)))))) #T)
-		(else #F))))
+			(and (satisfy? (satisfy_Bob Meal))
+				(and (satisfy_two? (satisfy_Cheryl Meal))
+				(and (satisfy? (satisfy_Diane Meal)) (satisfy? (satisfy_Edgar Meal))))))#T)
+				(else #F)))
 
 (satisfactory_meal? '((8 1 0 1 0 0) (9 0 1 1 0 0) (23 0 0 1 0 0) (2 0 0 1 1 0) (6 0 0 1 1 1)))
