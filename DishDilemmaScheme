@@ -1,0 +1,31 @@
+;satisfactory_meal? Meal function
+;Meal is a list of lists (Dish_number Has_meat? Has_vegetables? Organic? Is_dessert? Has_dairy?)
+
+; (satisfactory_meal? ' (
+; (8 1 0 1 0 0)
+; (9 0 1 1 0 0) 
+; (23 0 0 1 0 0)
+; (2 0 0 1 1 0)
+; (6 0 0 1 1 1)
+; ))
+; should return #T
+
+; Alice will not eat meat
+; Bob will not eat vegetables
+; Cheryl will only eat organic
+; Diane will not eat dessert
+; Edgar will not eat dairy
+
+;(define (satisfactory_meal? Meal)
+; return true if everyone can eat at least three dishes
+; return false if otherwise
+
+
+
+(define (satisfy? x )
+; if x >= 3 then return #T
+; Otherwise #F
+(cond ((>= x 3) #T)
+(else #F)))
+
+(define (satisfy_Alice Meal
