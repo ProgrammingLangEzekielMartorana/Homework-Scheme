@@ -53,12 +53,12 @@
       
 (define (satisfy_Cheryl Meal)
   (cond((null? Meal) 0)
-      (else ( + (cadddar Meal) (satisfy_Alice(cdr Meal))))))
+      (else ( + (car (cdddr (car Meal))) (satisfy_Alice(cdr Meal))))))
 
 (define (satisfy_Diane Meal)
   (cond((null? Meal) 0)
-      (else ( + (caddddar Meal) (satisfy_Alice(cdr Meal))))))      
+      (else ( + (car (cddr (cddr (car Meal)))) (satisfy_Alice(cdr Meal))))))      
       
 (define (satisfy_Edgar Meal)
   (cond((null? Meal) 0)
-      (else ( + (cadddddar Meal) (satisfy_Alice(cdr Meal))))))
+      (else ( + (cadr (cddr (cddr (car Meal)))) (satisfy_Alice(cdr Meal))))))
