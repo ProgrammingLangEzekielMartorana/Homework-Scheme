@@ -23,10 +23,20 @@
 
 
 (define (satisfy? x )
-; if x >= 3 then return #T
+; if x < 3 then return #T
 ; Otherwise #F
 (cond ((< x 3) #T)
 (else #F)))
+
+
+(define (satisfy_two x)
+; specifically for cheryl
+;if x >= 3 #T
+;Otherwise #F
+(cond((>= x 3) #T)
+(else #F)))
+
+
 
 (define (satisfy_Alice Meal)
   (cond((null? Meal) 0)
