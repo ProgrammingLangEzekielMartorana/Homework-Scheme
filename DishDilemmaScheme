@@ -10,8 +10,7 @@
 
 
 (define (satisfy? x)
-; specifically for cheryl
-;if x >= 3 #T
+;if x >= 3, where x is the number of satisfying meals #T
 ;Otherwise #F
 (cond((>= x 3) #T)
 (else #F)))
@@ -25,7 +24,7 @@
       
 (define (satisfy_Bob Meal)
   (cond((null? Meal) 0)
-      (( = (cadar Meal) 0) (+ 1 (satisfy_Bob (cdr Meal))))
+      (( = (caddar Meal) 0) (+ 1 (satisfy_Bob (cdr Meal))))
       (else (satisfy_Bob (cdr Meal)))))
       
 (define (satisfy_Cheryl Meal)
@@ -34,12 +33,12 @@
 
 (define (satisfy_Diane Meal)
    (cond((null? Meal) 0)
-      (( = (cadar Meal) 0) (+ 1 (satisfy_Diane (cdr Meal))))
+      (( = ( caddr (cddar Meal)) 0) (+ 1 (satisfy_Diane (cdr Meal))))			;caddddr
       (else (satisfy_Diane (cdr Meal)))))
       
 (define (satisfy_Edgar Meal)
   (cond((null? Meal) 0)
-      (( = (cadar Meal) 0) (+ 1 (satisfy_Edgar (cdr Meal))))
+      (( = (caddr(cdddar Meal)) 0) (+ 1 (satisfy_Edgar (cdr Meal))))
       (else (satisfy_Edgar (cdr Meal)))))
 
 (define (satisfactory_meal? Meal)
