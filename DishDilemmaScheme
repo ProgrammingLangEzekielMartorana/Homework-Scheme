@@ -10,7 +10,7 @@
 
 
 (define (satisfy? x)
-;if x >= 3, where x is the number of satisfying meals #T
+;if x >= 3, where x is the number of satisfying dishes of Meal, #T
 ;Otherwise #F
 (cond((>= x 3) #T)
 (else #F)))
@@ -19,30 +19,46 @@
 
 (define (satisfy_Alice Meal)
   (cond((null? Meal) 0)
+  ; return 0 if Alice can't eat this dish
+  ; return 1 if Alice can eat this dish
+  ; recursive through whole meal
       (( = (cadar Meal) 0) (+ 1 (satisfy_Alice (cdr Meal))))
       (else (satisfy_Alice (cdr Meal)))))
       
 (define (satisfy_Bob Meal)
   (cond((null? Meal) 0)
+  ; return 0 if Bob can't eat this dish
+  ; return 1 if Bob can eat this dish
+  ; recursive through whole meal
       (( = (caddar Meal) 0) (+ 1 (satisfy_Bob (cdr Meal))))
       (else (satisfy_Bob (cdr Meal)))))
       
 (define (satisfy_Cheryl Meal)
   (cond((null? Meal) 0)
+  ; return 0 if Cheryl can't eat this dish
+  ; return 1 if Cheryl can eat this dish
+  ; recursive through whole meal
       (else ( + (car (cdddr (car Meal))) (satisfy_Cheryl (cdr Meal))))))
 
 (define (satisfy_Diane Meal)
    (cond((null? Meal) 0)
+  ; return 0 if Diane can't eat this dish
+  ; return 1 if Diane can eat this dish
+  ; recursive through whole meal
       (( = ( caddr (cddar Meal)) 0) (+ 1 (satisfy_Diane (cdr Meal))))			;caddddr
       (else (satisfy_Diane (cdr Meal)))))
       
 (define (satisfy_Edgar Meal)
   (cond((null? Meal) 0)
+  ; return 0 if Edgar can't eat this dish
+  ; return 1 if Edgar can eat this dish
+  ; recursive through whole meal
       (( = (caddr(cdddar Meal)) 0) (+ 1 (satisfy_Edgar (cdr Meal))))
       (else (satisfy_Edgar (cdr Meal)))))
 
 (define (satisfactory_meal? Meal)
 ; return true if everyone can eat at least three dishes
+; "And" all the people together
 ; return false if otherwise
   (cond ((and (satisfy? (satisfy_Alice Meal))
 			(and (satisfy? (satisfy_Bob Meal))
